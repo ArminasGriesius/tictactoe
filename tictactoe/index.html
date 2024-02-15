@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="render.js" defer></script>
+    <script src="check.js" defer></script>
+    <script src="main.js" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fjalla+One&family=Inter:wght@300;400;500;600;700&family=Open+Sans&family=Passion+One&family=Permanent+Marker&display=swap");
+    </style>
+    <!-- <script src="mario.js" type="module"></script> -->
+
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+
+    
+  
+      <section id="ticTacToe" class="tictactoeSection">
+        <div id="winningMessage" class="winningMessage">
+          <h2 id="playerWon">Start the game</h2>
+          <button id="startButton" class="startButton" onclick="startGame()">
+            Start!
+          </button>
+          <div class="oponentSelect">
+            <label for="oponent" class="oponentLabel">Choose an oponent</label>
+            <select
+              onchange="selectedOponent()"
+              name="chooseOponent"
+              id="oponent"
+              class="oponentSelect"
+            >
+              <option value="computer">Computer</option>
+              <option value="playerTwo">Player 2</option>
+            </select>
+          </div>
+        </div>
+        <div id="ticTacToeBox" class="ticTacToeBox">
+          <div id="topLeft" class="box topLeft"></div>
+          <div id="topMiddle" class="box topMiddle"></div>
+          <div id="topRight" class="box topRight"></div>
+          <div id="middleLeft" class="box middleLeft"></div>
+          <div id="middle" class="box middle"></div>
+          <div id="middleRight" class="box middleRight"></div>
+          <div id="bottomLeft" class="box bottomLeft"></div>
+          <div id="bottomMiddle" class="box bottomMiddle"></div>
+          <div id="bottomRight" class="box bottomRight"></div>
+        </div>
+      </section>
+ 
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: import.meta.env.VITE_apiKey,
+        authDomain: import.meta.env.VITE_authDomain,
+        projectId: import.meta.env.VITE_projectId,
+        storageBucket: import.meta.env.VITE_storageBucket,
+        messagingSenderId: import.meta.env.VITE_messagingSenderId,
+        appId: import.meta.env.VITE_appId,
+        measurementId: import.meta.env.VITE_measurementId,
+      };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+  
+  </body>
+</html>
